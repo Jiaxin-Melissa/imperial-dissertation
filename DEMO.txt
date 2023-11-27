@@ -1,0 +1,35 @@
+Navigate into
+
+~/authorship/SOFTWARE_ARCHIVE/FINAL
+
+(A) Show training:
+
+python model_train_cpu.py --kernel_size=1
+
+Interrupt with Control-C once training has started
+
+(B)
+Creating test predictions:
+python model_getTestPredictions_cpu.py --model_path=model_pretrained_1grams.model
+(Because this is running on my laptop, I'm using only 1-grams)
+
+And interrupt with Control-C after a bit
+
+(C) Uploading the predictions to the website
+
+(D)
+Use gedit to show the code:
+
+gedit example/raw_code.cpp
+
+Then run model:
+
+python model_Classify_cpu.py --input_code=example/raw_code.cpp --model_path=model_pretrained_1grams.model
+
+
+(E)
+
+python3 run_lime_cpu.py  --input_code=example/raw_code.cpp --model_path=model_pretrained_1grams.model --n_explanations=10
+
+
+ 
